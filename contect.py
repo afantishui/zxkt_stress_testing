@@ -16,7 +16,7 @@ import threading
 def register_packet(uid, name, token, memtype, classid):
     canvas = canvas_message_pb2.MemRegisterRequest()
     canvas.uId = uid  # "789b31de-4ede-4417-9f20-2bbad9a8911f"   # 学生id、教师id
-    canvas.memName = name  # "在线二"  # 学生姓名、教师姓名
+    canvas.memName = name  # "在线二" 学生姓名、教师姓名
     canvas.token = token  # "8a48e33ce47e9f39d4082c3f8297d671"  # token
     canvas.memType = int(memtype)  # 1：学生 2：教师
     canvas.classId = classid  # "898801de-b57e-446f-8835-35bf07a8c2a3"    # 课堂Id（课表Id）
@@ -46,7 +46,7 @@ def recon_packet(uid, classid):
     header += canvas
     return header
 
-
+#画笔按下
 def pen_down_packet(lid):
     canvas = canvas_message_pb2.CanvasPenDown()
     canvas.cid = '5000'  # 笔画id
@@ -70,7 +70,7 @@ def pen_down_packet(lid):
     header += canvas
     return header
 
-
+# 画笔写
 def pen_draw_packet(lid):
     canvas = canvas_message_pb2.CanvasPenDraw()
     canvas.cid = '5000'
@@ -89,7 +89,7 @@ def pen_draw_packet(lid):
     header += canvas
     return header
 
-
+#画笔抬起
 def pen_done_packet(lid):
     canvas = canvas_message_pb2.CanvasPenDone()
     canvas.cid = '5000'
@@ -274,8 +274,8 @@ def send(host, port, uid, name, token, type, classid, lid, count):
 
 if __name__ == '__main__':
     t_start = time.time()
-    host = '120.77.198.98'  # 服务器的ip地址 120.77.57.10  120.77.198.98 47.107.208.146
-    port = 11233			# 服务器的端口号
+    host = 'xx.xx.xx.xx'  # 服务器的ip地址 
+    port = xxxx			# 服务器的端口号
     filepath = "E://python//在线课堂压测//conf.xlsx"  # excel配置路径
     count = 3500 # 画笔操作次数
     # 读取excel配置表 读取长度 for循环 传参
